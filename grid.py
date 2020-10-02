@@ -7,6 +7,10 @@ class Grid:
         self.height = height
         self.grid = [[0 for _ in range(self.width)] for _ in range(self.height)]
 
+    def print(self):
+        for x in self.grid:
+            print(x)
+
 class Cell(Enum):
     EMPTY = 0
     WALL = 1

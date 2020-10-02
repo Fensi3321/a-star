@@ -9,8 +9,8 @@ finished = False
 
 def init():
     pg.init()
-    pg.display.set_caption("A-star")
 
+    pg.display.set_caption("A-star")
     screen = pg.display.set_mode((w, h))
 
     return screen
@@ -24,7 +24,7 @@ def handle_events():
 
 def main():
     screen = init()
-    drawing.draw_board(screen, (10,10), Color.BACKGROUND)
+    drawing.draw_board(screen, Color.BACKGROUND)
 
     while not finished:
         handle_events()
