@@ -1,7 +1,9 @@
 import pygame as pg
-import grid as g
-w = 1080
-h = 720
+import drawing
+from colors import Color
+
+w = 1081
+h = 757
 
 finished = False
 
@@ -22,8 +24,7 @@ def handle_events():
 
 def main():
     screen = init()
-    grid = g.Grid(5,5)
-    grid.print_grid()
+    drawing.draw_board(screen, (10,10), Color.BACKGROUND)
 
     while not finished:
         handle_events()

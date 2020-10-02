@@ -1,19 +1,13 @@
+from enum import Enum
+from colors import Color
+
 class Grid:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.grid = [self.__zero_row(width) for i in range(height)]
+        self.grid = [[0 for _ in range(self.width)] for _ in range(self.height)]
 
-    def __zero_row(self, width):
-        return [0 for i in range(width)]
-
-    def print_grid(self):
-        for x in self.grid:
-            print(x)
-'''
-[
-    [0,0,0,0,0,0],
-    [0,0,0,0,0,0],
-    [0,0,0,0,0,0]
-]
-'''
+class Cell(Enum):
+    EMPTY = 0
+    WALL = 1
+    WAYPOINT = 2
