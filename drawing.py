@@ -8,7 +8,7 @@ grid = grid.Grid(1081 // cell_size, 757 // cell_size)
 def draw_board(surface: pygame.Surface, color: Color):
     surface.fill(color.value)
     draw_grid(surface)
-    draw_square(surface, (0, 0))
+    draw_square(surface, pygame.mouse.get_pos())
 
 def draw_grid(surface: pygame.Surface):
     # magic numbers are cool        

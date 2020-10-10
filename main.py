@@ -24,10 +24,11 @@ def handle_events():
 
 def main():
     screen = init()
-    drawing.draw_board(screen, Color.BACKGROUND)
 
     while not finished:
         handle_events()
+        drawing.draw_board(screen, Color.BACKGROUND)
+
 
     pg.quit()
 
