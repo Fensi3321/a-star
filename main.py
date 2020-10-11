@@ -1,11 +1,15 @@
 import pygame as pg
 import drawing
+import grid
 from colors import Color
 
 w = 1081
 h = 757
+cell_size = 108
 
 finished = False
+
+grid = grid.Grid(w, h, cell_size)
 
 def init():
     pg.init()
@@ -20,6 +24,11 @@ def handle_events():
         if event.type == pg.QUIT:
             pg.quit()
 
+        if event.type == pg.MOUSEBUTTONDOWN:
+            selected_cell = drawing.get_grid_pos(event.pos, grid)
+            if grid.grid[selected_cell[1]][selected_cell[0]] == 0:
+                grid.grid[selected_cell[1]][selected_cell[0]] = 1
+
     pg.display.update()
 
 def main():
@@ -27,7 +36,10 @@ def main():
 
     while not finished:
         handle_events()
-        drawing.draw_board(screen, Color.BACKGROUND)
+        drawing.draw_board(screen, Color.BACKGROUND, grid)
+
+        print("Grid")
+        grid.print()
 
 
     pg.quit()
