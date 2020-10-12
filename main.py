@@ -5,7 +5,7 @@ from colors import Color
 
 w = 1081
 h = 757
-cell_size = 108
+cell_size = 56
 
 finished = False
 
@@ -26,8 +26,13 @@ def handle_events():
 
         if event.type == pg.MOUSEBUTTONDOWN:
             selected_cell = drawing.get_grid_pos(event.pos, grid)
-            if grid.grid[selected_cell[1]][selected_cell[0]] == 0:
+            if event.button == 1: # 1 == Left Mouse Button
                 grid.grid[selected_cell[1]][selected_cell[0]] = 1
+            if event.button == 2: # 2 == Middle Mouse Button
+                grid.grid[selected_cell[1]][selected_cell[0]] = 0
+            if event.button == 3: # 3 == Right Mouse Button
+                grid.grid[selected_cell[1]][selected_cell[0]] = 2
+
 
     pg.display.update()
 
